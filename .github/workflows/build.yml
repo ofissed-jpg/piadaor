@@ -11,13 +11,13 @@ jobs:
 
       - name: Install Theos and SDK
         run: |
-          git clone --recursive https://github.com/theos/theos.git /Users/runner/work/fasfsaaw/fasfsaaw/theos
-          rm -rf /Users/runner/work/fasfsaaw/fasfsaaw/theos/sdks
-          git clone --depth 1 https://github.com/theos/sdks.git /Users/runner/work/fasfsaaw/fasfsaaw/theos/sdks
+          git clone --recursive https://github.com/theos/theos.git theos
+          rm -rf theos/sdks
+          git clone --depth 1 https://github.com/theos/sdks.git theos/sdks
 
       - name: Build Tweak
         run: |
-          make package FINALPACKAGE=1 THEOS=/Users/runner/work/fasfsaaw/fasfsaaw/theos
+          make package FINALPACKAGE=1
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
