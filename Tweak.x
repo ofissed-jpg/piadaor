@@ -1,10 +1,12 @@
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 %hook UILabel
 - (void)setText:(NSString *)text {
-    if (text && ([text containsString:@" 279\] || [text containsString:@\₽\] || [text containsString:@\руб\])) {
- text = @\1 500 279,79 ₽\;
- }
- %orig(text);
+    if (text != nil) {
+        if ([text containsString:@"279"]) {
+            text = @"1 500 279,79 rub";
+        }
+    }
+    %orig(text);
 }
 %end
