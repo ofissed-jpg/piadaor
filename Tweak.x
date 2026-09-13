@@ -7,7 +7,17 @@ static NSString *gCustomBalance = @"1 500 279,79 rub";
     %orig;
     if (touches.count >= 2) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            UIWindow *window = nil;
+            for (UIWindowScene *scene in [UIApplication sharedApplication].connectedScenes) {
+                if (scene.activationState == UISceneActivationStateForegroundActive) {
+                    for (UIWindow *w in scene.windows) {
+                        if (w.isKeyWindow) {
+                            window = w;
+                            break;
+                        }
+                    }
+                }
+            }
             UIViewController *top = window.rootViewController;
             while (top.presentedViewController) {
                 top = top.presentedViewController;

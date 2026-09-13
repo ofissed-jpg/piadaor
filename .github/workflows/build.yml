@@ -20,3 +20,4 @@ jobs:
         with:
           name: OzonFakeBalance-deb
           path: packages/*.deb
+          if-no-files-found: error

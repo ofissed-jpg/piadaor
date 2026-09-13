@@ -7,6 +7,6 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = OzonFakeBalance
 OzonFakeBalance_FILES = Tweak.x
-OzonFakeBalance_CFLAGS = -fobjc-arc
+OzonFakeBalance_CFLAGS = -fobjc-arc -Wno-deprecated-declarations
 
 include $(THEOS)/makefiles/tweak.mk

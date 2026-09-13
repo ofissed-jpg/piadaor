@@ -1,9 +1,7 @@
 {
     Filter = {
-        Bundles = (
-            "ru.ozon.fintech.app",
-            "com.ozon.bank",
-            "com.ozon.ozon"
+        Executables = (
+            "OzonBank"
         );
     };
 }
