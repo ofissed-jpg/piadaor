@@ -9,12 +9,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Theos Action
-        uses: theos/setup-theos-action@v2
+      - name: Setup Theos
+        uses: waruhachi/theos-action@v2.4.6
 
-      - name: Build Tweak
-        run: |
-          make package FINALPACKAGE=1
+      - name: Build package
+        run: make clean package FINALPACKAGE=1
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
